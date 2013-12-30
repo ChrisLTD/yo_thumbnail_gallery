@@ -1,9 +1,8 @@
 // Script by Chris Johnson 
 // http://chrisltd.com
 // Created December 2013
-//
-// Usage:
-// $("#element").gallery();
+// Version .01
+// Yo Thumbnail Gallery creates a Google Images like thumbnail grid. 
 
 (function($){
   'use strict';
@@ -16,7 +15,7 @@
     base.el = el;
     
     // Add a reverse reference to the DOM object
-    base.$el.data("gallery", base);
+    base.$el.data('gallery', base);
     
     base.init = function(){
       base.options = $.extend({},$.gallery.defaultOptions, options);
@@ -30,15 +29,12 @@
       base.gallery_images = gallery_images;
       base.gallery_images_length = base.gallery_images.length;
       base.$gallery = base.$el;
-      base.$thumbnails_button = $(".thumbnails_button", base.$slider_container);
-      base.$thumbnails = $(".thumbnails", base.$gallery);
-      base.thumbnail_selector = base.$gallery.selector + ' .thumbnail';
       base.$thumbnail = $(base.thumbnail_selector);
-      base.$thumbnail_viewer = $(".thumbnail_viewer", base.$gallery);
-      base.$thumbnail_left = $(".thumbnail_left", base.$thumbnail_viewer);
-      base.$thumbnail_right = $(".thumbnail_right", base.$thumbnail_viewer);
-      base.$thumbnail_close = $(".thumbnail_close", base.$thumbnail_viewer);
-      base.$thumbnail_img = $(".thumbnail_img", base.$thumbnail_viewer);
+      base.$thumbnail_viewer = $('.thumbnail_viewer', base.$gallery);
+      base.$thumbnail_left = $('.thumbnail_left', base.$thumbnail_viewer);
+      base.$thumbnail_right = $('.thumbnail_right', base.$thumbnail_viewer);
+      base.$thumbnail_close = $('.thumbnail_close', base.$thumbnail_viewer);
+      base.$thumbnail_img = $('.thumbnail_img', base.$thumbnail_viewer);
       base.$thumbnail_caption = $('.thumbnail_caption', base.$thumbnail_img);
       base.caption_selector = '.caption';
       base.browser_height = $(window).height();
@@ -49,7 +45,7 @@
       base.adjust();
 
       // When the window size changes, readjust
-      $(window).on("resize focus", function(){ base.adjust(); });
+      $(window).on('resize focus', function(){ base.adjust(); });
 
     };
    
@@ -73,7 +69,7 @@
       base.$thumbnail_viewer.appendTo( base.$gallery );
       base.$thumbnails.html('');
       base.appendThumbnails();
-    }
+    };
 
     base.bindThumbnailClicks = function(){
       base.$thumbnail_right.click(function(event){
@@ -99,7 +95,7 @@
 
         // Set thumbnail image and caption
         base.$thumbnail_img.css('background-image', 'url(' + $this.data('src') + ')');
-        base.$thumbnail_img.css('height', (base.browser_height - (2 * Math.floor(base.options.thumbnail_height * 0.2) ) - base.options.thumbnail_height ) + "px"); // subtract a bit to show a bit of the images beneath
+        base.$thumbnail_img.css('height', (base.browser_height - (2 * Math.floor(base.options.thumbnail_height * 0.2) ) - base.options.thumbnail_height ) + 'px'); // subtract a bit to show a bit of the images beneath
         $('.row').not($row).css('height', 'auto');
         base.$thumbnail_caption.text( $this.data('caption') );
         
@@ -107,14 +103,14 @@
         base.$thumbnail_viewer.appendTo($row);
         base.$thumbnail_viewer.show();
         $row.addClass('active');
-        $row.css('height', (base.browser_height - Math.floor(base.thumbnail_height * 0.2) ) + "px"); // subtract a bit to show a bit of the images beneath
+        $row.css('height', (base.browser_height - Math.floor(base.thumbnail_height * 0.2) ) + 'px'); // subtract a bit to show a bit of the images beneath
         
         $(base.thumbnail_selector).not($this).removeClass('active');
         $this.addClass('active');
         window.location.hash = '#' + $this.attr('id');
       });
 
-    }
+    };
 
     base.next_thumbnail = function(){
       var next_slide_number = $(base.thumbnail_selector + '.active').data('slide-number');
@@ -123,7 +119,7 @@
       } else {
         $(base.thumbnail_selector)[next_slide_number].click();
       }
-    }
+    };
     
     base.previous_thumbnail = function(){
       var previous_slide_number = $(base.thumbnail_selector + '.active').data('slide-number') - 2;
@@ -132,7 +128,7 @@
       } else {
         $(base.thumbnail_selector)[previous_slide_number].click();
       }
-    }
+    };
     
     // Adjust the layout
     base.adjust = function() {
@@ -140,7 +136,7 @@
       base.browser_width = $(window).width();
       base.resetThumbnails();
       base.checkHash();
-    }
+    };
 
     // We use hashes to save and restore state
     base.checkHash = function() {
@@ -148,18 +144,18 @@
       if( hash.match(/^#thumbnail/) ){
         $(hash).click();
       }
-    }
+    };
 
     // Bind keypresses
     base.bindKeypresses = function(){
       $(document).keydown(function(event) {
-        if( event.key == "Right"){
+        if( event.key == 'Right'){
           base.next_thumbnail();
-        } else if( event.key == "Left" ){
+        } else if( event.key == 'Left' ){
           base.previous_thumbnail();
         }
       });
-    }
+    };
 
     // Run initializer
     base.init();
