@@ -1,0 +1,63 @@
+<!doctype html>  
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <title>Gallery</title>
+ 
+  <meta name="viewport" content="width=500">
+  
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+  <link rel="stylesheet" href="yothumbnailgallery.css">
+
+</head>
+
+<body>
+
+<div id="gallery">
+
+  <div class="thumbnails"></div>
+  <div class="thumbnail_viewer">
+    <a href="#" class="thumbnail_left"></a>
+    <a href="#" class="thumbnail_right"></a>
+    <a href="#" class="thumbnail_close">&times;</a>
+    <div class="thumbnail_img">
+      <div class="thumbnail_caption"></div>
+    </div>
+  </div>
+
+</div>
+
+<p align="center"><cite>Placeholder images from <a href="http://placekitten.com/">placekitten</a></cite></p>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="jquery.yothumbnailgallery.js"></script>
+  <script>
+  $('#gallery').gallery(
+    [
+      { url: "http://placekitten.com/800/570", caption: 'Dolor sit amet' },
+      { url: "http://placekitten.com/g/350/200", caption: 'Numquam scripserit in sea' },
+      { url: "http://placekitten.com/800/600", caption: 'Lorem ipsum dolor sit amet' },
+      { url: "http://placekitten.com/g/350/150", caption: 'Pri ne autil' },
+      { url: "http://placekitten.com/500/400", caption: 'Simul consulatu in quo. Numquam scripserit in sea, id eum autem aliquip scaevola.' },
+      { url: "http://placekitten.com/g/500/400", caption: 'Dolor' },
+      { url: "http://placekitten.com/800/500", caption: 'Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.' },
+      { url: "http://placekitten.com/g/800/500", caption: 'Numquam scripserit in sea' },
+      { url: "http://placekitten.com/900/500", caption: 'Scripserit in sea' }
+    ],
+    {
+      'thumbnail_width': 200,   // pixels
+      'thumbnail_height': 200,  // pixels
+      'thumbnail_margin': 5     // pixels
+    }
+  );
+  </script> 
+
+</body>
+</html>
