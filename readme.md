@@ -48,7 +48,8 @@ Simple example
 ## Options
 ```js
 'thumbnail_width': 200,   // pixels
-'thumbnail_height': 200   // pixels
+'thumbnail_height': 200,  // pixels
+'thumbnail_margin': 5     // pixels
 ```
 
 ## To do
