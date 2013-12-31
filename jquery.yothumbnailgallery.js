@@ -29,6 +29,8 @@
       base.gallery_images = gallery_images;
       base.gallery_images_length = base.gallery_images.length;
       base.$gallery = base.$el;
+      base.$thumbnails = $('.thumbnails', base.$gallery);
+      base.thumbnail_selector = base.$gallery.selector + ' .thumbnail';
       base.$thumbnail = $(base.thumbnail_selector);
       base.$thumbnail_viewer = $('.thumbnail_viewer', base.$gallery);
       base.$thumbnail_left = $('.thumbnail_left', base.$thumbnail_viewer);
@@ -58,7 +60,7 @@
         var rowID = 'row' + r;
         base.$thumbnails.append('<div class="row" id="' + rowID + '"></div>');
         for(var x = 0; (x < max_thumbs_per_row && i < base.gallery_images_length ); x++){
-          $('#' + rowID, base.$thumbnails).append('<a href="#" id="thumbnail' + i + '" class="thumbnail" style="background-image:url(' + base.gallery_images[i].url + '); width: ' + base.options.thumbnail_width + 'px; height: ' + base.options.thumbnail_height + 'px; margin: ' + base.options.thumbnail_margin + 'px" data-slide-number="' + (i + 1) + '" data-row="#' + rowID + '" data-src="' + base.gallery_images[i].url + '" data-caption="' + base.gallery_images[i].caption + '"></a>');
+          $('#' + rowID, base.$thumbnails).append('<a href="#" id="thumbnail' + i + '" class="thumbnail" style="background-image:url(' + base.gallery_images[i].thumb_url + '); width: ' + base.options.thumbnail_width + 'px; height: ' + base.options.thumbnail_height + 'px; margin: ' + base.options.thumbnail_margin + 'px" data-slide-number="' + (i + 1) + '" data-row="#' + rowID + '" data-src="' + base.gallery_images[i].url + '" data-caption="' + base.gallery_images[i].caption + '"></a>');
           i++;
         }
       }

@@ -7,7 +7,7 @@ You can also use the left and right arrows on your keyboard to navigate the gall
 
 ![Animated Example](https://github.com/chrisltd/yo_thumbnail_gallery/raw/master/example.gif)
 
-Just activate the plugin on a properly formatted wrapper element and pass in an array of images and captions. 
+Just activate the plugin on a properly formatted wrapper element and pass in an array of images, thumbnails and captions. 
 
 ## Usage Examples
 Simple example
@@ -31,10 +31,10 @@ Simple example
 <script>
 	$('#gallery').gallery(
     [
-      { url: "http://placekitten.com/g/500/400", caption: 'Dolor' },
-      { url: "http://placekitten.com/800/500", caption: 'Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.' },
-      { url: "http://placekitten.com/g/800/500", caption: 'Numquam scripserit in sea' },
-      { url: "http://placekitten.com/900/500", caption: 'Scripserit in sea' }
+      { url: "http://placekitten.com/800/570", thumb_url: "http://placekitten.com/800/570", caption: 'Dolor sit amet' },
+      { url: "http://placekitten.com/g/350/200", thumb_url: "http://placekitten.com/g/350/200", caption: 'Numquam scripserit in sea' },
+      { url: "http://placekitten.com/800/600", thumb_url: "http://placekitten.com/800/600", caption: 'Lorem ipsum dolor sit amet' },
+      { url: "http://placekitten.com/g/350/150", thumb_url: "http://placekitten.com/g/350/150", caption: 'Pri ne autil' }
     ],
     {
     'thumbnail_width': 200,   // pixels
@@ -53,6 +53,6 @@ Simple example
 ```
 
 ## To do
-* Load different images for thumbnail sizes
 * Link to larger images
 * Create option to disable the keyboard shortcuts
+* Add some init callbacks
