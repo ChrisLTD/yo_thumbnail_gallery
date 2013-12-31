@@ -3,7 +3,7 @@
 .thumbnails a img { border: 0; }
 .thumbnails .row { text-align: center; }
 .thumbnails .thumbnail { position: relative; }
-.thumbnails .row .active:after { content:" "; position: absolute; top: 100%; left: 90px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid #fff; }
+.thumbnails .row .active:after { content:" "; position: absolute; top: 100%; left: 90px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid #000; }
 
 .thumbnail_viewer { display: none; text-align: center; padding: 15px 65px; position: relative; }
 .thumbnail_img { position: relative; max-width: 100%; background-size: contain; background-position: center; background-repeat: no-repeat; }
