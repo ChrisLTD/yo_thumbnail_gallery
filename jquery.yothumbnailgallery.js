@@ -40,7 +40,7 @@
       base.$thumbnail_caption = $('.thumbnail_caption', base.$thumbnail_img);
       base.caption_selector = '.caption';
       base.browser_height = $(window).height();
-      base.browser_width = $(window).width();
+      base.container_width = base.$el.parent().width();
 
       base.bindKeypresses();
       base.bindThumbnailClicks();
@@ -53,7 +53,7 @@
    
     // Create the thumbnails, split into rows based on width
     base.appendThumbnails = function(){
-      var max_thumbs_per_row = Math.floor( base.browser_width / (base.options.thumbnail_width + (base.options.thumbnail_margin * 2.5) ) ); // we multiply instead of 2 by 2.5 for extra safety
+      var max_thumbs_per_row = Math.floor( base.container_width / (base.options.thumbnail_width + (base.options.thumbnail_margin * 2.5) ) ); // we multiply instead of 2 by 2.5 for extra safety
       var rows = Math.ceil( base.gallery_images_length / max_thumbs_per_row );
       var i = 0; // image index
       for(var r = 0; r < rows; r++){
@@ -64,7 +64,7 @@
           i++;
         }
       }
-    }
+    };
 
     // If the window width changes, we'll need to reset the thumbnail display to redo the rows
     base.resetThumbnails = function(){
@@ -135,7 +135,7 @@
     // Adjust the layout
     base.adjust = function() {
       base.browser_height = $(window).height();
-      base.browser_width = $(window).width();
+      base.container_width = base.$el.parent().width();
       base.resetThumbnails();
       base.checkHash();
     };
