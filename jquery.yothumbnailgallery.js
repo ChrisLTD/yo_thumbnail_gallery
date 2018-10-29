@@ -151,9 +151,9 @@
     // Bind keypresses
     base.bindKeypresses = function(){
       $(document).keydown(function(event) {
-        if( event.key == 'Right'){
+        if( event.key == 'ArrowRight'){
           base.next_thumbnail();
-        } else if( event.key == 'Left' ){
+        } else if( event.key == 'ArrowLeft' ){
           base.previous_thumbnail();
         }
       });
